@@ -1188,32 +1188,12 @@ RectTransform:
   m_AnchoredPosition: {x: 1576.8, y: 540}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1335184722 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2796515081270891932, guid: 4347c90b8baef9e4baad6e0064fec494,
-    type: 3}
-  m_PrefabInstance: {fileID: 2796515080055412942}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1335184723 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2796515081270891933, guid: 4347c90b8baef9e4baad6e0064fec494,
     type: 3}
   m_PrefabInstance: {fileID: 2796515080055412942}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1335184724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335184722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2aca23bb29f5c04bb0a7b59903b89ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startState: {fileID: 0}
-  stateData: {fileID: 11400000, guid: 31533cf11bc23f44fbb501f8c30af52b, type: 2}
 --- !u!1 &1372164824
 GameObject:
   m_ObjectHideFlags: 0
@@ -1589,6 +1569,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d0b652f32a2cc243917e4028fa0f046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1681419755 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 143557086161085805, guid: 4347c90b8baef9e4baad6e0064fec494,
+    type: 3}
+  m_PrefabInstance: {fileID: 2796515080055412942}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47b6bf3a7880d374a8d4ea2a62f7c226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1958185460
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1751,6 +1743,11 @@ PrefabInstance:
       propertyPath: drinkSelector
       value: 
       objectReference: {fileID: 1451726907}
+    - target: {fileID: 282233603024531138, guid: 4347c90b8baef9e4baad6e0064fec494,
+        type: 3}
+      propertyPath: possibleNextStates.Array.data[2]
+      value: 
+      objectReference: {fileID: 1681419755}
     - target: {fileID: 476563917321561916, guid: 4347c90b8baef9e4baad6e0064fec494,
         type: 3}
       propertyPath: m_AnchoredPosition.x
