@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Dropdown))]
 public class DrinkSelector : MonoBehaviour {
+    [SerializeField]
+    private Dropdown dropdownMenu = null;
     [SerializeField]
     private string placeholder = "Auswählen...";
     [SerializeField]
     private List<DrinkData> drinks = new List<DrinkData>();
-
-    private Dropdown dropdownMenu;
 
 
     public void SetDropdownActive(bool isActive) {
@@ -18,11 +17,10 @@ public class DrinkSelector : MonoBehaviour {
     }
 
     public void SelectPlaceholder() {
-        dropdownMenu.value = 0;
+        dropdownMenu.SetValueWithoutNotify(0);
     }
 
     private void Awake() {
-        dropdownMenu = GetComponent<Dropdown>();
         dropdownMenu.onValueChanged.AddListener(OnSelect);
 
         List<Dropdown.OptionData> dropdownOptions = new List<Dropdown.OptionData>();

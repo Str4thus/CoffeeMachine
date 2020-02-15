@@ -13,8 +13,10 @@ public class ChooseDrinkState : State
 
     public override void Enter(StateData stateData) {
         base.Enter(stateData);
+        stateData.drink = null;
         drinkSelector.SelectPlaceholder();
         drinkSelector.SetDropdownActive(true);
+        
     }
 
     public override void Exit() {
@@ -26,6 +28,7 @@ public class ChooseDrinkState : State
      * possibleNextStates:
      * 0 - q1 (EnoughResources)
      * 1 - q6 (InsufficientResources)
+     * 2 - q7 (EmptyResources)
      */
     public override State CheckForTransition() {
         if (stateData.drink == null)

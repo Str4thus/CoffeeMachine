@@ -36,7 +36,10 @@ public abstract class State : MonoBehaviour
             machineCell.color = Color.black;
     }
 
-    public abstract State CheckForTransition();
+    public virtual State CheckForTransition() {
+        Debug.Log("No transitions available from this State! (Assure, that this is a final state)");
+        return null;
+    }
 
     /* StateActions */
     // 0
@@ -93,5 +96,6 @@ public enum StateName {
     PaymentCompleted,
     MoneyReturn,
     DrinkReady,
-    InsufficientResources
+    InsufficientResources,
+    EmptyResources
 }
