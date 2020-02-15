@@ -14,6 +14,7 @@ public abstract class State : MonoBehaviour
     protected List<State> possibleNextStates = new List<State>();
 
     protected StateData stateData;
+    public abstract StateName StateName { get; }
 
     [Header("UI")]
     [SerializeField]
@@ -39,7 +40,7 @@ public abstract class State : MonoBehaviour
 
     /* StateActions */
     // 0
-    public virtual void SelectDrink(string drink) {
+    public virtual void SelectDrink(DrinkData drink) {
         Debug.Log("Not implemented.");
     }
 
@@ -82,4 +83,15 @@ public abstract class State : MonoBehaviour
     public virtual void End() {
         Debug.Log("Not implemented.");
     }
+}
+
+
+public enum StateName {
+    ChooseDrink,
+    EnoughResources,
+    PaymentStarted,
+    PaymentCompleted,
+    MoneyReturn,
+    DrinkReady,
+    InsufficientResources
 }

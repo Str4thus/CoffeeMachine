@@ -5,6 +5,8 @@ using UnityEngine;
 // q1
 public class EnoughResourcesState : State
 {
+    public override StateName StateName { get { return StateName.EnoughResources; } }
+
     /*
      * possibleNextStates:
      * 0 - q0 (ChooseDrinkState)

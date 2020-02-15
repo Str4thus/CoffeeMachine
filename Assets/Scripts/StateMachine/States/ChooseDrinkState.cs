@@ -5,23 +5,39 @@ using UnityEngine;
 // q0
 public class ChooseDrinkState : State
 {
+    [Header("Required")]
+    [SerializeField]
+    private DrinkSelector drinkSelector = null;
+
+    public override StateName StateName { get { return StateName.ChooseDrink; } }
+
+    public override void Enter(StateData stateData) {
+        base.Enter(stateData);
+        drinkSelector.SelectPlaceholder();
+        drinkSelector.SetDropdownActive(true);
+    }
+
+    public override void Exit() {
+        base.Exit();
+        drinkSelector.SetDropdownActive(false);
+    }
+
     /*
      * possibleNextStates:
      * 0 - q1 (EnoughResources)
      * 1 - q6 (InsufficientResources)
      */
     public override State CheckForTransition() {
-        if (stateData.drink.Length == 0)
+        if (stateData.drink == null)
             return null;
 
-        if (stateData.coffeePowder > 10)
+        if (stateData.HasSufficientResources())
             return possibleNextStates[0]; // q1
 
         return possibleNextStates[1]; // q6
     }
 
-    public override void SelectDrink(string drink) {
-        Debug.Log("Selected " + drink);
+    public override void SelectDrink(DrinkData drink) {
         stateData.drink = drink;
     }
 }

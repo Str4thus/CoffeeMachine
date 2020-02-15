@@ -5,9 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New StateData", menuName = "StateData")]
 public class StateData : ScriptableObject
 {
-    public string drink;
+    public DrinkData drink;
     public float coffeePowder = 1000f; // gramms
     public float milkPowder = 1000f; // gramms
+    public int milkPortions = 100;
     public int sugarCubes = 100;
 
     public float costs = 0f;
@@ -19,4 +20,11 @@ public class StateData : ScriptableObject
     public int fiftyCents = 10;
     public int twentyCents = 10;
     public int tenCents = 10;
+
+    public bool HasSufficientResources() {
+        return coffeePowder > drink.neededCoffeePowder
+            && milkPowder > drink.neededMilkPowder
+            && sugarCubes > drink.desiredSugarCubes
+            && milkPortions > drink.desiredMilkPortions;
+    }
 }

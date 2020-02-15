@@ -9,17 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22afd3c35c1e76b4db08f940f2f550d3, type: 3}
-  m_Name: StartStateData
+  m_Script: {fileID: 11500000, guid: 8e54e2f7671d8f14f923168011d4134b, type: 3}
+  m_Name: CoffeeDrinkData
   m_EditorClassIdentifier: 
-  drink: 
-  coffeePowder: 1000
-  milkPowder: 1000
-  sugarCubes: 100
-  costs: 0
-  paidMoney: 0
-  twoEuros: 10
-  oneEuros: 10
-  fiftyCents: 10
-  twentyCents: 10
-  tenCents: 10
+  drinkName: Kaffee
+  price: 2
+  desiredSugarCubes: 1
+  desiredMilkPortions: 1
+  neededCoffeePowder: 4
+  neededMilkPowder: 4
+  neededWater: 4

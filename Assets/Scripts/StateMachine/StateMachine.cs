@@ -2,19 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateMachine : MonoBehaviour
-{
+public class StateMachine : MonoBehaviour {
     [SerializeField]
-    private State startState;
+    private State startState = null;
     [SerializeField]
-    private StateData stateData;
+    private StateData stateData = null;
 
-    private State currentState;
-
+    private static StateMachine instance = null;
+    public static StateMachine Instance { get { return instance; } }
+    public State CurrentState { get; private set; }
+    
     private void Awake() {
-        Resources.UnloadAsset(stateData); // Reset data of SO
+        if (instance != null && instance != this) {
+            Debug.Log("Rip");
+            Destroy(gameObject);
+        } else {
+            instance = this;
 
-        MakeTransition(startState);
+            Resources.UnloadAsset(stateData); // Reset data of SO
+            MakeTransition(startState);
+        }
     }
 
     private void Update() {
@@ -22,7 +29,7 @@ public class StateMachine : MonoBehaviour
     }
 
     private void TryTransition() {
-        State newState = currentState.CheckForTransition();
+        State newState = CurrentState.CheckForTransition();
         if (newState) {
             MakeTransition(newState);
         }
@@ -30,10 +37,10 @@ public class StateMachine : MonoBehaviour
 
 
     private void MakeTransition(State newState) {
-        if (currentState)
-            currentState.Exit();
+        if (CurrentState)
+            CurrentState.Exit();
 
         newState.Enter(stateData);
-        currentState = newState;
+        CurrentState = newState;
     }
 }
