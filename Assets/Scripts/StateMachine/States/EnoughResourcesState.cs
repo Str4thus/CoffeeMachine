@@ -5,12 +5,22 @@ using UnityEngine;
 // q1
 public class EnoughResourcesState : State
 {
-    public override StateName StateName { get { return StateName.EnoughResources; } }
+    public override StateName StateName => StateName.EnoughResources;
     private bool aborted = false;
 
     public override void Enter(StateData stateData) {
         base.Enter(stateData);
         aborted = false;
+        GameManager.Instance.goodBulb.TurnOn();
+        GameManager.Instance.abortButton.SetUserCanInput(true);
+        GameManager.Instance.SetMoneyButtonEnabled(true);
+    }
+
+    public override void Exit() {
+        base.Exit();
+        GameManager.Instance.goodBulb.TurnOff();
+        GameManager.Instance.abortButton.SetUserCanInput(false);
+        GameManager.Instance.SetMoneyButtonEnabled(false);
     }
 
     /*
@@ -22,19 +32,15 @@ public class EnoughResourcesState : State
     public override State CheckForTransition() {
         if (aborted)
             return possibleNextStates[0]; // q0
-
-        if (stateData.paidMoney > 0)
+        
+        if (stateData.paidMoney > 0f)
             return possibleNextStates[1]; // q2
 
         return null;
     }
-
-    public override void UpdateSignalLights() {
-        Debug.Log("BLUE BULB GLOWS!");
-    }
-
+    
     public override void InsertMoney(float value) {
-        Debug.Log("Paid " + value + "€");
+        stateData.paidMoney += value;
     }
 
     public override void Abort() {

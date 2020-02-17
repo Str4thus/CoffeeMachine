@@ -12,9 +12,8 @@ public class StateMachine : MonoBehaviour {
     public static StateMachine Instance { get { return instance; } }
     public State CurrentState { get; private set; }
     
-    private void Awake() {
+    private void Start() {
         if (instance != null && instance != this) {
-            Debug.Log("Rip");
             Destroy(gameObject);
         } else {
             instance = this;

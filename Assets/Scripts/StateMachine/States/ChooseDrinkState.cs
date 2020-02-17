@@ -9,19 +9,20 @@ public class ChooseDrinkState : State
     [SerializeField]
     private DrinkSelector drinkSelector = null;
 
-    public override StateName StateName { get { return StateName.ChooseDrink; } }
+    public override StateName StateName => StateName.ChooseDrink;
 
     public override void Enter(StateData stateData) {
         base.Enter(stateData);
         stateData.drink = null;
-        drinkSelector.SelectPlaceholder();
-        drinkSelector.SetDropdownActive(true);
-        
+
+        GameManager.Instance.confirmButton.SetUserCanInput(true);
+        drinkSelector.SetUserCanInput(true);
     }
 
     public override void Exit() {
         base.Exit();
-        drinkSelector.SetDropdownActive(false);
+        GameManager.Instance.confirmButton.SetUserCanInput(false);
+        drinkSelector.SetUserCanInput(false);
     }
 
     /*
@@ -31,6 +32,9 @@ public class ChooseDrinkState : State
      * 2 - q7 (EmptyResources)
      */
     public override State CheckForTransition() {
+        if (false) // Substitue with a method to check if any drink can be still made from the left resources
+            return possibleNextStates[2]; // q7
+
         if (stateData.drink == null)
             return null;
 
@@ -42,5 +46,9 @@ public class ChooseDrinkState : State
 
     public override void SelectDrink(DrinkData drink) {
         stateData.drink = drink;
+    }
+
+    public override void Confirm() {
+        StateMachine.Instance.CurrentState.SelectDrink(drinkSelector.SelectedDrink);
     }
 }

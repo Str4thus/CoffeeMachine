@@ -22,9 +22,11 @@ public class StateData : ScriptableObject
     public int tenCents = 10;
 
     public bool HasSufficientResources() {
-        return coffeePowder > drink.neededCoffeePowder
-            && milkPowder > drink.neededMilkPowder
-            && sugarCubes > drink.desiredSugarCubes
-            && milkPortions > drink.desiredMilkPortions;
+        Debug.Log(drink);
+
+        return coffeePowder >= drink.neededCoffeePowder
+            && milkPowder >= drink.neededMilkPowder
+            && sugarCubes >= drink.desiredSugarCubes
+            && milkPortions >= drink.desiredMilkPortions;
     }
 }

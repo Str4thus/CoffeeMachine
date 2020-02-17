@@ -7,11 +7,9 @@ public abstract class State : MonoBehaviour
 {
     [Header("General")]
     [SerializeField]
-    protected bool isActive = false;
-    [SerializeField]
-    protected bool isFinal = false;
-    [SerializeField]
     protected List<State> possibleNextStates = new List<State>();
+    protected bool isActive = false;
+    protected bool isFinal = false;
 
     protected StateData stateData;
     public abstract StateName StateName { get; }
@@ -44,11 +42,6 @@ public abstract class State : MonoBehaviour
     /* StateActions */
     // 0
     public virtual void SelectDrink(DrinkData drink) {
-        Debug.Log("Not implemented.");
-    }
-
-    // 1
-    public virtual void UpdateSignalLights() {
         Debug.Log("Not implemented.");
     }
 
@@ -93,7 +86,7 @@ public enum StateName {
     ChooseDrink,
     EnoughResources,
     PaymentStarted,
-    PaymentCompleted,
+    PaymentComplete,
     MoneyReturn,
     DrinkReady,
     InsufficientResources,

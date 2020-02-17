@@ -5,10 +5,12 @@ using UnityEngine;
 // q7
 public class EmptyResourcesState : State
 {
-    public override StateName StateName { get { return StateName.EmptyResources; } }
+    public override StateName StateName => StateName.EmptyResources;
 
     public override void Enter(StateData stateData) {
         base.Enter(stateData);
+        GameManager.Instance.goodBulb.TurnOn();
+        GameManager.Instance.dangerBulb.TurnOn();
         End();
     }
 

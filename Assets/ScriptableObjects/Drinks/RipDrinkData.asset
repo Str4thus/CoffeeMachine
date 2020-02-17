@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drinkName: Rip
   price: 4
-  desiredSugarCubes: 1000
-  desiredMilkPortions: 5
+  desiredSugarCubes: 0
+  desiredMilkPortions: 0
   neededCoffeePowder: 5
   neededMilkPowder: 5
   neededWater: 5
