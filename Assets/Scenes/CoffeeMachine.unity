@@ -121,6 +121,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &33776794 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2946267185848165810, guid: 45a194d356c555a418c341f2fad97d6b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2946267184816205490}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &33776795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33776794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3539bd42785b794ca43a57eca8d94af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &139576628 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5850652702761124570, guid: 68321092f04a60f498e320e538213682,
@@ -394,8 +412,8 @@ MonoBehaviour:
   milkPortionInput: {fileID: 1967952559}
   confirmButton: {fileID: 139576633}
   abortButton: {fileID: 860365636}
-  terminal: {fileID: 0}
-  moneyDisplay: {fileID: 0}
+  terminal: {fileID: 33776795}
+  moneyDisplay: {fileID: 1340215888}
   goodBulb: {fileID: 1668761798}
   dangerBulb: {fileID: 267373478}
   tenCentButton: {fileID: 973777751}
@@ -403,6 +421,7 @@ MonoBehaviour:
   fiftyCentButton: {fileID: 1695581205}
   oneEuroButton: {fileID: 1955768621}
   twoEuroButton: {fileID: 401525677}
+  IsReady: 0
 --- !u!4 &971522412
 Transform:
   m_ObjectHideFlags: 0
@@ -574,6 +593,24 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2796515080055412942}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1340215887 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2946267186744867669, guid: 45a194d356c555a418c341f2fad97d6b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2946267184816205490}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1340215888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340215887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31769181edabf9e41979e99bca3f314e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1372164824
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,7 +1249,7 @@ PrefabInstance:
     - target: {fileID: 6547401018829479979, guid: 4347c90b8baef9e4baad6e0064fec494,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7084406496302265417, guid: 4347c90b8baef9e4baad6e0064fec494,
         type: 3}

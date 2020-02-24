@@ -32,14 +32,14 @@ public class EnoughResourcesState : State
         if (aborted)
             return possibleNextStates[0]; // q0
         
-        if (stateData.paidMoney > 0f)
+        if (stateData.PaidMoney > 0f)
             return possibleNextStates[1]; // q2
 
         return null;
     }
     
     public override void InsertMoney(float value) {
-        stateData.paidMoney += value;
+        stateData.Pay(value);
     }
 
     public override void Abort() {

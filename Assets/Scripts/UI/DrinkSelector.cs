@@ -29,8 +29,6 @@ public class DrinkSelector : MonoBehaviour {
         private set { selectedDrink = value; } }
 
     public void SetUserCanInput(bool isActive) {
-
-        Debug.Log("Entered " + transform.name);
         dropdownMenu.interactable = isActive;
         sugarCubeInput.interactable = isActive;
         milkPortionInput.interactable = isActive;
@@ -54,7 +52,7 @@ public class DrinkSelector : MonoBehaviour {
             }
         });
         milkPortionInput.onValueChanged.AddListener(delegate {
-            if (int.TryParse(milkPortionInput.text, out desiredMilkPortions)) {
+            if (!int.TryParse(milkPortionInput.text, out desiredMilkPortions)) {
                 desiredMilkPortions = 0;
             }
         });

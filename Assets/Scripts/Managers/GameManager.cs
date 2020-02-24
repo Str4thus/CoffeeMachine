@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
     public AbortButton abortButton;
 
     [Header("Feedback")]
-    public Text terminal;
-    public Text moneyDisplay;
+    public MoneyDisplay moneyDisplay;
+    public Terminal terminal;
 
     public Bulb goodBulb;
     public Bulb dangerBulb;
@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     private static GameManager instance = null;
     public static GameManager Instance { get { return instance; } }
     
+    [HideInInspector]
     public bool IsReady = false;
 
     private void Awake() {

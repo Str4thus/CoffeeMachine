@@ -13,7 +13,7 @@ public class ChooseDrinkState : State
 
     public override void Enter(StateData stateData) {
         base.Enter(stateData);
-        stateData.drink = null;
+        stateData.Drink = null;
 
         GameManager.Instance.confirmButton.SetUserCanInput(true);
         drinkSelector.SetUserCanInput(true);
@@ -35,7 +35,7 @@ public class ChooseDrinkState : State
         //if (false) // Substitue with a method to check if any drink can be still made from the left resources
         //    return possibleNextStates[2]; // q7
 
-        if (stateData.drink == null)
+        if (stateData.Drink == null)
             return null;
 
         if (stateData.HasSufficientResources())
@@ -45,7 +45,7 @@ public class ChooseDrinkState : State
     }
 
     public override void SelectDrink(DrinkData drink) {
-        stateData.drink = drink;
+        stateData.Drink = drink;
     }
 
     public override void Confirm() {

@@ -5,28 +5,53 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New StateData", menuName = "StateData")]
 public class StateData : ScriptableObject
 {
-    public DrinkData drink;
-    public float coffeePowder = 1000f; // gramms
-    public float milkPowder = 1000f; // gramms
-    public int milkPortions = 100;
-    public int sugarCubes = 100;
+    private DrinkData drink;
+    public DrinkData Drink {
+        get {
+            return drink;
+        }
 
-    public float costs = 0f;
-    public float paidMoney = 0f;
+        // Update the money display automatically
+        set {
+            if (value)
+                GameManager.Instance.moneyDisplay.UpdateDisplay(value.price);
+            else
+                GameManager.Instance.moneyDisplay.UpdateDisplay(0);
+
+            drink = value;
+        }
+    }
+
+    [SerializeField] private float coffeePowder = 1000f; // gramms
+    [SerializeField] private float milkPowder = 1000f; // gramms
+    [SerializeField] private int milkPortions = 100;
+    [SerializeField] private int sugarCubes = 100;
+
+    [SerializeField] private float paidMoney = 0f;
+    public float PaidMoney => paidMoney;
 
     // Odd Money
-    public int twoEuros = 10;
-    public int oneEuros = 10;
-    public int fiftyCents = 10;
-    public int twentyCents = 10;
-    public int tenCents = 10;
+    [SerializeField] private int twoEuros = 10;
+    [SerializeField] private int oneEuros = 10;
+    [SerializeField] private int fiftyCents = 10;
+    [SerializeField] private int twentyCents = 10;
+    [SerializeField] private int tenCents = 10;
 
     public bool HasSufficientResources() {
-        Debug.Log(drink);
+        return coffeePowder >= Drink.neededCoffeePowder
+            && milkPowder >= Drink.neededMilkPowder
+            && sugarCubes >= Drink.desiredSugarCubes
+            && milkPortions >= Drink.desiredMilkPortions;
+    }
 
-        return coffeePowder >= drink.neededCoffeePowder
-            && milkPowder >= drink.neededMilkPowder
-            && sugarCubes >= drink.desiredSugarCubes
-            && milkPortions >= drink.desiredMilkPortions;
+    public void Pay(float amount) {
+        //IsAmountIsChangable();
+
+        GameManager.Instance.moneyDisplay.SubtractAmount(amount);
+        paidMoney += amount;
+    }
+
+    private void IsAmountIsChangable() {
+        // make sure, that the machine can return the correct amount of odd money
     }
 }
