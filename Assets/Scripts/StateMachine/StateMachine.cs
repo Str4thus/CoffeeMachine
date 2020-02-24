@@ -10,6 +10,7 @@ public class StateMachine : MonoBehaviour {
 
     private static StateMachine instance = null;
     public static StateMachine Instance { get { return instance; } }
+
     public State CurrentState { get; private set; }
     
     private void Start() {
@@ -17,14 +18,17 @@ public class StateMachine : MonoBehaviour {
             Destroy(gameObject);
         } else {
             instance = this;
-
             Resources.UnloadAsset(stateData); // Reset data of SO
-            MakeTransition(startState);
         }
     }
 
     private void Update() {
-        TryTransition();
+        // GameManager disables all input fields before the state machine should start operating
+        if (!CurrentState && GameManager.Instance.IsReady) {
+            MakeTransition(startState);
+        } else if (CurrentState) {
+            TryTransition();
+        }
     }
 
     private void TryTransition() {

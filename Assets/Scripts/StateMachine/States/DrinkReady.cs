@@ -9,6 +9,7 @@ public class DrinkReady : State
     /*
      * possibleNextStates:
      * 0 - q0 (ChooseDrink)
+     * 1 - q4 (MoneyReturn) if the user paid more than required
      */
     public override State CheckForTransition() {
         return null;

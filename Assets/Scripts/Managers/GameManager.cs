@@ -32,6 +32,8 @@ public class GameManager : MonoBehaviour
 
     private static GameManager instance = null;
     public static GameManager Instance { get { return instance; } }
+    
+    public bool IsReady = false;
 
     private void Awake() {
         if (instance != null && instance != this) {
@@ -43,6 +45,8 @@ public class GameManager : MonoBehaviour
 
     private void Start() {
         DisableInputElements();
+
+        IsReady = true;
     }
 
     // Each State enables the input elements it needs and deactivates them if the state gets changed

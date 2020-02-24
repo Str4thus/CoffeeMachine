@@ -29,6 +29,8 @@ public class DrinkSelector : MonoBehaviour {
         private set { selectedDrink = value; } }
 
     public void SetUserCanInput(bool isActive) {
+
+        Debug.Log("Entered " + transform.name);
         dropdownMenu.interactable = isActive;
         sugarCubeInput.interactable = isActive;
         milkPortionInput.interactable = isActive;

@@ -28,7 +28,6 @@ public class EnoughResourcesState : State
      * 0 - q0 (ChooseDrinkState)
      * 1 - q2 (PaymentStarted)
      */
-
     public override State CheckForTransition() {
         if (aborted)
             return possibleNextStates[0]; // q0

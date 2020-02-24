@@ -32,8 +32,8 @@ public class ChooseDrinkState : State
      * 2 - q7 (EmptyResources)
      */
     public override State CheckForTransition() {
-        if (false) // Substitue with a method to check if any drink can be still made from the left resources
-            return possibleNextStates[2]; // q7
+        //if (false) // Substitue with a method to check if any drink can be still made from the left resources
+        //    return possibleNextStates[2]; // q7
 
         if (stateData.drink == null)
             return null;

@@ -19,7 +19,8 @@ public abstract class State : MonoBehaviour
     protected RawImage machineCell;
 
     public virtual void Enter(StateData stateData) {
-        Debug.Log("Active State: " + this.name);
+
+        Debug.Log("Entered " + transform.name);
         this.stateData = stateData;
         isActive = true;
 
@@ -28,6 +29,7 @@ public abstract class State : MonoBehaviour
     }
 
     public virtual void Exit() {
+        Debug.Log("Exited " + transform.name);
         isActive = false;
 
         if (machineCell)
