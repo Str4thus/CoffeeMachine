@@ -13,6 +13,8 @@ public class InsufficientResources : State
         aborted = false;
         GameManager.Instance.dangerBulb.TurnOn();
         GameManager.Instance.abortButton.SetUserCanInput(true);
+
+        WriteToTerminal("Ungenügend Ressourcen für das Getränk.");
     }
 
     public override void Exit() {

@@ -11,6 +11,8 @@ public class EmptyResourcesState : State
         base.Enter(stateData);
         GameManager.Instance.goodBulb.TurnOn();
         GameManager.Instance.dangerBulb.TurnOn();
+
+        WriteToTerminal("Maschine bitte auffüllen.");
         End();
     }
 

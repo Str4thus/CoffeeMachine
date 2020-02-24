@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: CoffeeDrinkData
   m_EditorClassIdentifier: 
   drinkName: Kaffee
-  price: 2
-  desiredSugarCubes: 1
-  desiredMilkPortions: 1
+  price: 1
+  desiredSugarCubes: 4
+  desiredMilkPortions: 4
   neededCoffeePowder: 4
   neededMilkPowder: 4
   neededWater: 4

@@ -38,6 +38,10 @@ public abstract class State : MonoBehaviour
         return null;
     }
 
+    public void WriteToTerminal(string message) {
+        GameManager.Instance.terminal.WriteMessage(message);
+    }
+
     /* StateActions */
     // 0
     public virtual void SelectDrink(DrinkData drink) {

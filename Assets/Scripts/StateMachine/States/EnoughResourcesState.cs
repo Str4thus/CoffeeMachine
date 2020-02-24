@@ -14,6 +14,10 @@ public class EnoughResourcesState : State
         GameManager.Instance.goodBulb.TurnOn();
         GameManager.Instance.abortButton.SetUserCanInput(true);
         GameManager.Instance.SetMoneyButtonEnabled(true);
+
+        WriteToTerminal("Genügend Ressourcen vorhanden!" +
+            "\n\n" +
+            "Warte auf Zahlungsbeginn.");
     }
 
     public override void Exit() {

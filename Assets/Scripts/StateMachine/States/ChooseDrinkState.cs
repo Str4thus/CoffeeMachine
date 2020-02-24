@@ -17,6 +17,7 @@ public class ChooseDrinkState : State
 
         GameManager.Instance.confirmButton.SetUserCanInput(true);
         drinkSelector.SetUserCanInput(true);
+        WriteToTerminal("Bitte wähle ein Getränk aus.");
     }
 
     public override void Exit() {
