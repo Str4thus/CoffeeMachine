@@ -1346,6 +1346,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1038141407}
     m_Modifications:
+    - target: {fileID: 2946267184959199084, guid: 45a194d356c555a418c341f2fad97d6b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946267184959199084, guid: 45a194d356c555a418c341f2fad97d6b,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 116.38
+      objectReference: {fileID: 0}
     - target: {fileID: 2946267185286335729, guid: 45a194d356c555a418c341f2fad97d6b,
         type: 3}
       propertyPath: m_Name
@@ -1455,6 +1465,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946267185467338596, guid: 45a194d356c555a418c341f2fad97d6b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.3899865
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946267185467338596, guid: 45a194d356c555a418c341f2fad97d6b,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 417.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946267185467338597, guid: 45a194d356c555a418c341f2fad97d6b,
+        type: 3}
+      propertyPath: m_textAlignment
+      value: 258
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946267185467338597, guid: 45a194d356c555a418c341f2fad97d6b,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946267185467338597, guid: 45a194d356c555a418c341f2fad97d6b,
+        type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946267185467338597, guid: 45a194d356c555a418c341f2fad97d6b,
+        type: 3}
+      propertyPath: m_fontSizeMin
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45a194d356c555a418c341f2fad97d6b, type: 3}
