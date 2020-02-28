@@ -12,15 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22afd3c35c1e76b4db08f940f2f550d3, type: 3}
   m_Name: StartStateData
   m_EditorClassIdentifier: 
-  drink: {fileID: 0}
   coffeePowder: 1000
   milkPowder: 1000
   milkPortions: 100
   sugarCubes: 100
-  costs: 0
   paidMoney: 0
-  twoEuros: 10
-  oneEuros: 10
-  fiftyCents: 10
-  twentyCents: 10
-  tenCents: 10
+  twoEuros: 0
+  oneEuros: 0
+  fiftyCents: 0
+  twentyCents: 1
+  tenCents: 2

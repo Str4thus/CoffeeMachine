@@ -10,6 +10,7 @@ public abstract class State : MonoBehaviour
     protected List<State> possibleNextStates = new List<State>();
     protected bool isActive = false;
     protected bool isFinal = false;
+    protected bool aborted = false;
 
     protected StateData stateData;
     public abstract StateName StateName { get; }
@@ -28,6 +29,7 @@ public abstract class State : MonoBehaviour
 
     public virtual void Exit() {
         isActive = false;
+        aborted = false;
 
         if (machineCell)
             machineCell.color = Color.black;
@@ -42,6 +44,15 @@ public abstract class State : MonoBehaviour
         GameManager.Instance.terminal.WriteMessage(message);
     }
 
+
+    public virtual void Abort() {
+        aborted = true;
+    }
+
+    public virtual void Confirm() {
+        Debug.Log("Not implemented.");
+    }
+
     /* StateActions */
     // 0
     public virtual void SelectDrink(DrinkData drink) {
@@ -50,21 +61,11 @@ public abstract class State : MonoBehaviour
 
     // 1, 2
     public virtual void InsertMoney(float value) {
-        Debug.Log("Not implemented.");
+        stateData.Pay(value);
     }
 
     // 2, 3
     public virtual void UpdateMoneyDisplay() {
-        Debug.Log("Not implemented.");
-    }
-
-    // 2, 3
-    public virtual void Abort() {
-        Debug.Log("Not implemented.");
-    }
-
-    // 3
-    public virtual void Confirm() {
         Debug.Log("Not implemented.");
     }
 

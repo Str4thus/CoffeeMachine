@@ -6,7 +6,6 @@ using UnityEngine;
 public class EnoughResourcesState : State
 {
     public override StateName StateName => StateName.EnoughResources;
-    private bool aborted = false;
 
     public override void Enter(StateData stateData) {
         base.Enter(stateData);
@@ -40,13 +39,5 @@ public class EnoughResourcesState : State
             return possibleNextStates[1]; // q2
 
         return null;
-    }
-    
-    public override void InsertMoney(float value) {
-        stateData.Pay(value);
-    }
-
-    public override void Abort() {
-        aborted = true;
     }
 }
