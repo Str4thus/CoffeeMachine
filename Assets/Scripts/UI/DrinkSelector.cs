@@ -41,6 +41,7 @@ public class DrinkSelector : MonoBehaviour {
 
     private void OnSelectListener(int index) {
         SelectedDrink = index > 0 ? drinks[index - 1] : null;
+        GameManager.Instance.moneyDisplay.UpdateDisplay(SelectedDrink.price);
     }
 
     private void Awake() {

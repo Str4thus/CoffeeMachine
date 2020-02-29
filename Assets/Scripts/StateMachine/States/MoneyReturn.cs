@@ -10,6 +10,7 @@ public class MoneyReturn : State
     public override void Enter(StateData stateData) {
         base.Enter(stateData);
 
+        GameManager.Instance.CreateOddMoneyGameObject();
         AppendToTerminal("Bitte Geld entnehmen.");
     }
 
@@ -18,7 +19,11 @@ public class MoneyReturn : State
      * 0 - q0 (ChooseDrink)
      */
     public override State CheckForTransition() {
-        // Implement button that represents money, and when click it invokes stateData.ReturnOddMoney()
+        if (tookItem) {
+            stateData.ReturnMoney();
+            return possibleNextStates[0]; // q0
+        }
+
         return null;
     }
 }

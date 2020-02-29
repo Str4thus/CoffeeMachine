@@ -23,24 +23,34 @@ public class StateData : ScriptableObject
         }
     }
 
+    [Header("Start Resources")]
     [SerializeField] private float coffeePowder = 1000f; // gramms
     [SerializeField] private float milkPowder = 1000f; // gramms
     [SerializeField] private int milkPortions = 100;
     [SerializeField] private int sugarCubes = 100;
 
-    [SerializeField] private float paidMoney = 0f;
-    public float PaidMoney => paidMoney;
+    [Header("Minimum Required Resources")]
+    [SerializeField] private float minCoffeePowder = 5f; // gramms
+    [SerializeField] private float minMilkPowder = 5f; // gramms
+    [SerializeField] private int minMilkPortions = 1;
+    [SerializeField] private int minSugarCubes = 1;
 
-    // Odd Money
+    [Header("Odd Money")]
     [SerializeField] private int twoEuros;
     [SerializeField] private int oneEuros;
     [SerializeField] private int fiftyCents;
     [SerializeField] private int twentyCents;
     [SerializeField] private int tenCents;
-    
+
+    private float paidMoney = 0f;
+    public float PaidMoney => paidMoney;
+
     private Dictionary<float, int> oddMoney = new Dictionary<float, int>();
     private Dictionary<float, int> oddMoneyToReturn = new Dictionary<float, int>();
     private Dictionary<float, int> insertedMoney = new Dictionary<float, int>();
+
+    private bool drinkCreated = false;
+
 
     public void OnEnable() {
         oddMoney[.1f] = tenCents;
@@ -50,6 +60,22 @@ public class StateData : ScriptableObject
         oddMoney[2f] = twoEuros;
     }
 
+
+    public void Reset() {
+        drink = null;
+        insertedMoney.Clear();
+        oddMoneyToReturn.Clear();
+        paidMoney = 0f;
+        drinkCreated = false;
+
+        GameManager.Instance.moneyDisplay.UpdateDisplay(0f);
+        GameManager.Instance.drinkSelection.SelectPlaceholder();
+    }
+    
+    public void CreateDrink() {
+        GameManager.Instance.CreateDrinkGameObject(Drink);
+        drinkCreated = true;
+    }
 
     // Resources
     public bool HasSufficientResources() {
@@ -66,11 +92,18 @@ public class StateData : ScriptableObject
         milkPortions -= Drink.desiredMilkPortions;
     }
 
+    public bool ResourcesAboveMinimumRequirement() {
+        return coffeePowder >= minCoffeePowder
+            && milkPowder >= minMilkPowder
+            && sugarCubes >= minSugarCubes
+            && milkPortions >= minMilkPortions;
+    }
+
     // Payment
     public void Pay(float amount) {
         // Keep track of inserted money
-        insertedMoney.TryGetValue(amount, out var currentCount); 
-        insertedMoney[amount] = currentCount++; 
+        insertedMoney.TryGetValue(amount, out var currentCount);
+        insertedMoney[amount] = currentCount + 1;
 
         oddMoney[amount]++; // Add inserted money to odd money
 
@@ -78,8 +111,8 @@ public class StateData : ScriptableObject
         paidMoney += amount;
     }
     
-    public void ReturnOddMoney() {
-        if (IsAmountChangable()) { // Return odd money
+    public void ReturnMoney() {
+        if (drinkCreated) { // Return odd money
             foreach (float key in oddMoneyToReturn.Keys) {
                 oddMoney[key] -= oddMoneyToReturn[key]; // Subtract the returned pieces from the others
             }
@@ -94,6 +127,10 @@ public class StateData : ScriptableObject
 
     public bool HasPaidEnough() {
         return PaidMoney >= drink.price;
+    }
+
+    public bool ReceivesOddMoney() {
+        return PaidMoney > drink.price;
     }
 
     public bool IsAmountChangable() {

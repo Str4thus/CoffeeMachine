@@ -12,6 +12,7 @@ public abstract class State : MonoBehaviour
     protected bool isFinal = false;
     protected bool aborted = false;
     protected bool confirmed = false;
+    protected bool tookItem = false; // If the user took the drink or change money from the machine
 
     protected StateData stateData;
     public abstract StateName StateName { get; }
@@ -32,6 +33,7 @@ public abstract class State : MonoBehaviour
         isActive = false;
         aborted = false;
         confirmed = false;
+        tookItem = false;
 
         if (machineCell)
             machineCell.color = Color.black;
@@ -75,14 +77,14 @@ public abstract class State : MonoBehaviour
         Debug.Log("Not implemented.");
     }
     
-    public virtual void ReturnMoney() {
-        Debug.Log("Not implemented.");
-    }
-    
     public virtual void ServeDrink() {
         Debug.Log("Not implemented.");
     }
     
+    public virtual void TakeItemFromEjectSlot() {
+        tookItem = true;
+    }
+
     public virtual void End() {
         Debug.Log("Not implemented.");
     }

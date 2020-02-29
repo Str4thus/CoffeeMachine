@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     public MoneyButton oneEuroButton;
     public MoneyButton twoEuroButton;
 
+    [Header("Misc")]
+    public Transform ejectSlot;
 
     private static GameManager instance = null;
     public static GameManager Instance { get { return instance; } }
@@ -36,7 +38,12 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public bool IsReady = false;
 
+    [SerializeField] private GameObject oddMoneyPrefab;
+    private Canvas canvas = null;
+
     private void Awake() {
+        canvas = FindObjectOfType<Canvas>();
+
         if (instance != null && instance != this) {
             Destroy(gameObject);
         } else {
@@ -66,5 +73,21 @@ public class GameManager : MonoBehaviour
         fiftyCentButton.SetUserCanInput(isActive);
         oneEuroButton.SetUserCanInput(isActive);
         twoEuroButton.SetUserCanInput(isActive);
+    }
+
+    public GameObject CreateDrinkGameObject(DrinkData drink) {
+        return CreateUIElement(drink.prefab);
+    }
+
+    public GameObject CreateOddMoneyGameObject() {
+        return CreateUIElement(oddMoneyPrefab);
+    }
+
+    private GameObject CreateUIElement(GameObject gameObject) {
+        GameObject uiElement = Instantiate(gameObject);
+        uiElement.transform.position = ejectSlot.position;
+        uiElement.transform.SetParent(canvas.transform);
+
+        return uiElement;
     }
 }
