@@ -58,8 +58,13 @@ public class StateData : ScriptableObject
             && sugarCubes >= Drink.desiredSugarCubes
             && milkPortions >= Drink.desiredMilkPortions;
     }
-    
 
+    public void UseRequiredResources() {
+        coffeePowder -= Drink.neededCoffeePowder;
+        milkPowder -= Drink.neededMilkPowder;
+        sugarCubes -= Drink.desiredSugarCubes;
+        milkPortions -= Drink.desiredMilkPortions;
+    }
 
     // Payment
     public void Pay(float amount) {

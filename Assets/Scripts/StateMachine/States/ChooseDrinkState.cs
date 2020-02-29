@@ -37,7 +37,7 @@ public class ChooseDrinkState : State
         //    return possibleNextStates[2]; // q7
 
         if (confirmed)
-            StateMachine.Instance.CurrentState.SelectDrink(drinkSelector.SelectedDrink);
+            SelectDrink(drinkSelector.SelectedDrink);
 
         if (stateData.Drink == null)
             return null;
