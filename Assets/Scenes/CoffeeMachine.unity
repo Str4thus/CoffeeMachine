@@ -987,6 +987,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1038141407}
     m_Modifications:
+    - target: {fileID: 249067057156584707, guid: 4347c90b8baef9e4baad6e0064fec494,
+        type: 3}
+      propertyPath: stateData
+      value: 
+      objectReference: {fileID: 11400000, guid: 31533cf11bc23f44fbb501f8c30af52b,
+        type: 2}
     - target: {fileID: 282233603024531138, guid: 4347c90b8baef9e4baad6e0064fec494,
         type: 3}
       propertyPath: drinkSelector

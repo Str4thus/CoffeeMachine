@@ -20,5 +20,5 @@ MonoBehaviour:
   twoEuros: 0
   oneEuros: 0
   fiftyCents: 0
-  twentyCents: 1
-  tenCents: 2
+  twentyCents: 0
+  tenCents: 0

@@ -11,6 +11,7 @@ public abstract class State : MonoBehaviour
     protected bool isActive = false;
     protected bool isFinal = false;
     protected bool aborted = false;
+    protected bool confirmed = false;
 
     protected StateData stateData;
     public abstract StateName StateName { get; }
@@ -30,6 +31,7 @@ public abstract class State : MonoBehaviour
     public virtual void Exit() {
         isActive = false;
         aborted = false;
+        confirmed = false;
 
         if (machineCell)
             machineCell.color = Color.black;
@@ -40,9 +42,16 @@ public abstract class State : MonoBehaviour
         return null;
     }
 
+
+
     public void WriteToTerminal(string message) {
         GameManager.Instance.terminal.WriteMessage(message);
     }
+
+    public void AppendToTerminal(string message) {
+        GameManager.Instance.terminal.AppendMessage(message);
+    }
+
 
 
     public virtual void Abort() {
@@ -50,36 +59,30 @@ public abstract class State : MonoBehaviour
     }
 
     public virtual void Confirm() {
-        Debug.Log("Not implemented.");
+        confirmed = true;
     }
-
+    
     /* StateActions */
-    // 0
     public virtual void SelectDrink(DrinkData drink) {
         Debug.Log("Not implemented.");
     }
-
-    // 1, 2
+    
     public virtual void InsertMoney(float value) {
         stateData.Pay(value);
     }
-
-    // 2, 3
+    
     public virtual void UpdateMoneyDisplay() {
         Debug.Log("Not implemented.");
     }
-
-    // 4
+    
     public virtual void ReturnMoney() {
         Debug.Log("Not implemented.");
     }
-
-    // 5
+    
     public virtual void ServeDrink() {
         Debug.Log("Not implemented.");
     }
-
-    // 6
+    
     public virtual void End() {
         Debug.Log("Not implemented.");
     }

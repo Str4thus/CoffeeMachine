@@ -34,7 +34,12 @@ public class PaymentStarted : State
         if (aborted)
             return possibleNextStates[1]; // q4
 
-        if (stateData.IsPaymentSucessful())
+        if (stateData.HasPaidEnough() && !stateData.IsAmountChangable()) {
+            WriteToTerminal("Betrag kann nicht gewechselt werden.");
+            return possibleNextStates[1]; // q4
+        }
+            
+        if (stateData.HasPaidEnough() && stateData.IsAmountChangable())
             return possibleNextStates[0]; // q3
         
         return null;

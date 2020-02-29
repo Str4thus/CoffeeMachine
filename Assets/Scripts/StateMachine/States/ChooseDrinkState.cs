@@ -36,9 +36,12 @@ public class ChooseDrinkState : State
         //if (false) // Substitue with a method to check if any drink can be still made from the left resources
         //    return possibleNextStates[2]; // q7
 
+        if (confirmed)
+            StateMachine.Instance.CurrentState.SelectDrink(drinkSelector.SelectedDrink);
+
         if (stateData.Drink == null)
             return null;
-
+        
         if (stateData.HasSufficientResources())
             return possibleNextStates[0]; // q1
 
@@ -47,9 +50,5 @@ public class ChooseDrinkState : State
 
     public override void SelectDrink(DrinkData drink) {
         stateData.Drink = drink;
-    }
-
-    public override void Confirm() {
-        StateMachine.Instance.CurrentState.SelectDrink(drinkSelector.SelectedDrink);
     }
 }

@@ -10,4 +10,8 @@ public class Terminal : MonoBehaviour
     public void WriteMessage(string message) {
         display.text = message;
     }
+
+    public void AppendMessage(string message) {
+        display.text += "\n\n" + message;
+    }
 }

@@ -9,7 +9,6 @@ public class InsufficientResources : State
 
     public override void Enter(StateData stateData) {
         base.Enter(stateData);
-        aborted = false;
         GameManager.Instance.dangerBulb.TurnOn();
         GameManager.Instance.abortButton.SetUserCanInput(true);
 
@@ -29,6 +28,7 @@ public class InsufficientResources : State
     public override State CheckForTransition() {
         if (aborted)
             return possibleNextStates[0]; // q1
+
         return null;
     }
 }

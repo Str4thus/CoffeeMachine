@@ -9,7 +9,6 @@ public class EnoughResourcesState : State
 
     public override void Enter(StateData stateData) {
         base.Enter(stateData);
-        aborted = false;
         GameManager.Instance.goodBulb.TurnOn();
         GameManager.Instance.abortButton.SetUserCanInput(true);
         GameManager.Instance.SetMoneyButtonEnabled(true);
