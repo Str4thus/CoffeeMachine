@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 22afd3c35c1e76b4db08f940f2f550d3, type: 3}
-  m_Name: StartStateData
+  m_Name: NoAdditionsStateData
   m_EditorClassIdentifier: 
-  coffeePowder: 10
+  coffeePowder: 1000
   milkPowder: 1000
-  milkPortions: 100
-  sugarCubes: 1
-  minCoffeePowder: 5
-  minMilkPowder: 5
+  milkPortions: 0
+  sugarCubes: 0
+  minCoffeePowder: 1
+  minMilkPowder: 1
   minMilkPortions: 1
   minSugarCubes: 1
-  twoEuros: 0
-  oneEuros: 0
-  fiftyCents: 0
-  twentyCents: 0
-  tenCents: 0
+  twoEuros: 10
+  oneEuros: 10
+  fiftyCents: 10
+  twentyCents: 10
+  tenCents: 10

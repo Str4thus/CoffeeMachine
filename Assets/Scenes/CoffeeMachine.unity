@@ -342,7 +342,7 @@ MonoBehaviour:
   stateDiagramWidget: {fileID: 1174819193}
   ejectSlot: {fileID: 2110465284}
   IsReady: 0
-  oddMoneyPrefab: {fileID: 4202930079871437124, guid: e8a4853ba5ec7bc44a62fc0111be4d64,
+  oddMoneyPrefab: {fileID: 4185376050887250483, guid: e8a4853ba5ec7bc44a62fc0111be4d64,
     type: 3}
 --- !u!4 &971522412
 Transform:
@@ -787,6 +787,12 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 40674755925330685, guid: 4347c90b8baef9e4baad6e0064fec494,
+        type: 3}
+      propertyPath: stateData
+      value: 
+      objectReference: {fileID: 11400000, guid: 31533cf11bc23f44fbb501f8c30af52b,
+        type: 2}
     - target: {fileID: 40674755925330686, guid: 4347c90b8baef9e4baad6e0064fec494,
         type: 3}
       propertyPath: m_Name
@@ -916,6 +922,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Machine
       objectReference: {fileID: 0}
+    - target: {fileID: 3134185920729981976, guid: 45a194d356c555a418c341f2fad97d6b,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -201
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45a194d356c555a418c341f2fad97d6b, type: 3}
 --- !u!1001 &8665736767382986270
@@ -925,6 +936,47 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1038141407}
     m_Modifications:
+    - target: {fileID: 8665736766669456933, guid: 68321092f04a60f498e320e538213682,
+        type: 3}
+      propertyPath: drinks.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8665736766669456933, guid: 68321092f04a60f498e320e538213682,
+        type: 3}
+      propertyPath: drinks.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 641e2fbbe40f64b45bad8b23ee2b84ea,
+        type: 2}
+    - target: {fileID: 8665736766669456933, guid: 68321092f04a60f498e320e538213682,
+        type: 3}
+      propertyPath: drinks.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 91f79050030245247ab1516d82b7ed35,
+        type: 2}
+    - target: {fileID: 8665736766669456933, guid: 68321092f04a60f498e320e538213682,
+        type: 3}
+      propertyPath: drinks.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 264648987ab44074c979d926bde025d3,
+        type: 2}
+    - target: {fileID: 8665736766669456933, guid: 68321092f04a60f498e320e538213682,
+        type: 3}
+      propertyPath: drinks.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 664ac6381815e9245be4986e6c1435b5,
+        type: 2}
+    - target: {fileID: 8665736766669456933, guid: 68321092f04a60f498e320e538213682,
+        type: 3}
+      propertyPath: drinks.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 16818c2ab09ea274ba1dd3fce4e128d3,
+        type: 2}
+    - target: {fileID: 8665736766669456933, guid: 68321092f04a60f498e320e538213682,
+        type: 3}
+      propertyPath: drinks.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4038894cc2a3f0140a58a25beca52a97,
+        type: 2}
     - target: {fileID: 8665736767039472260, guid: 68321092f04a60f498e320e538213682,
         type: 3}
       propertyPath: m_Name

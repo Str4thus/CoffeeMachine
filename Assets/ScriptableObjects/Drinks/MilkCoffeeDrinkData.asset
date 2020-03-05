@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e54e2f7671d8f14f923168011d4134b, type: 3}
-  m_Name: CoffeeDrinkData
+  m_Name: MilkCoffeeDrinkData
   m_EditorClassIdentifier: 
   prefab: {fileID: 5430009664337870700, guid: 204e48634971daf4a8897efc72a9b876, type: 3}
-  drinkName: Kaffee
-  price: 2
+  drinkName: Milchkaffee
+  price: 2.7
   desiredSugarCubes: 0
   desiredMilkPortions: 0
-  neededCoffeePowder: 10
-  neededMilkPowder: 0
-  neededWater: 250
+  neededCoffeePowder: 20
+  neededMilkPowder: 20
+  neededWater: 350
