@@ -1,4 +1,3 @@
 - Drink Sprites
 - Default Drinks
 - 2 Own Drinks
-- Hide State Diagram

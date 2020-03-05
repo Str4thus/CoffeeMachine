@@ -29,6 +29,11 @@ public class GameManager : MonoBehaviour
     public MoneyButton oneEuroButton;
     public MoneyButton twoEuroButton;
 
+    [Header("Widgets")]
+    public GameObject machineWidget;
+    public GameObject controlPanelWidget;
+    public GameObject stateDiagramWidget;
+
     [Header("Misc")]
     public Transform ejectSlot;
 
@@ -37,9 +42,11 @@ public class GameManager : MonoBehaviour
     
     [HideInInspector]
     public bool IsReady = false;
+    
 
     [SerializeField] private GameObject oddMoneyPrefab;
     private Canvas canvas = null;
+    private bool displayStateDiagram = false;
 
     private void Awake() {
         canvas = FindObjectOfType<Canvas>();
@@ -57,14 +64,9 @@ public class GameManager : MonoBehaviour
         IsReady = true;
     }
 
-    // Each State enables the input elements it needs and deactivates them if the state gets changed
-    private void DisableInputElements() {
-        drinkSelection.SetUserCanInput(false);
-
-        confirmButton.SetUserCanInput(false);
-        abortButton.SetUserCanInput(false);
-
-        SetMoneyButtonEnabled(false);
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.H))
+            ToggleStateDiagram();
     }
 
     public void SetMoneyButtonEnabled(bool isActive) {
@@ -83,11 +85,35 @@ public class GameManager : MonoBehaviour
         return CreateUIElement(oddMoneyPrefab);
     }
 
+    private void ToggleStateDiagram() {
+        displayStateDiagram = !displayStateDiagram;
+
+        if (displayStateDiagram) {
+            machineWidget.transform.localPosition = new Vector3(-481, 0, 0);
+            controlPanelWidget.transform.localPosition = new Vector3(0, 0, 0);
+            stateDiagramWidget.transform.localPosition = new Vector3(514, 0, 0);
+        } else {
+            machineWidget.transform.localPosition = new Vector3(-250, 0, 0);
+            controlPanelWidget.transform.localPosition = new Vector3(380, 0, 0);
+            stateDiagramWidget.transform.localPosition = new Vector3(1273, 0, 0);
+        }
+    }
+
     private GameObject CreateUIElement(GameObject gameObject) {
         GameObject uiElement = Instantiate(gameObject);
         uiElement.transform.position = ejectSlot.position;
         uiElement.transform.SetParent(canvas.transform);
 
         return uiElement;
+    }
+    
+    // Each State enables the input elements it needs and deactivates them if the state gets changed
+    private void DisableInputElements() {
+        drinkSelection.SetUserCanInput(false);
+
+        confirmButton.SetUserCanInput(false);
+        abortButton.SetUserCanInput(false);
+
+        SetMoneyButtonEnabled(false);
     }
 }
